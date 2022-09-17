@@ -1,3 +1,6 @@
+// styles
+import "./Home.scss";
+// components
 import React from "react";
 
 const Home = () => {
