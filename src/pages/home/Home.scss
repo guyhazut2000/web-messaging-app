@@ -1,0 +1,53 @@
+@mixin mobile {
+    @media screen and (max-width: 480px){
+        @content;
+    }
+}
+@mixin tablet {
+    @media screen and (max-width: 768px){
+        @content;
+    }
+}
+@mixin laptop {
+    @media screen and (max-width: 1200px){
+        @content;
+    }
+}
+
+.home{
+    background-color: #a7bcff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .main{
+        border: 1px solid white;
+        border-radius: 10px;
+        width: 65%;
+        height: 80%;
+        display: flex;
+        overflow: hidden;
+
+        @include tablet{
+            width: 90%;
+        }
+
+        .logo{
+            @include tablet{
+                display: none;
+            }
+        }
+
+    }
+
+    .sidebarContainer{
+        flex: 1;
+        border-right: 1px solid #3e3c61;
+        background-color: #3e3c61;
+    }
+
+    .chatContainer{
+        flex: 2;
+    }
+}
