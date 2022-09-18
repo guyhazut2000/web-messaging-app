@@ -4,7 +4,7 @@ import "./Input.scss";
 import Attach from "../../images/attach.png";
 import Img from "../../images/img.png";
 // components
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { ChatContext } from "../../context/ChatContext";
 import {
@@ -77,12 +77,35 @@ const Input = () => {
     setText("");
     setImg(null);
   };
+
+  useEffect(() => {
+    const keyDownHandler = (event) => {
+      console.log("User pressed: ", event.key);
+
+      if (event.key === "Enter") {
+        event.preventDefault();
+
+        // 👇️ your logic here
+        handleSend();
+        setText("");
+      }
+    };
+
+    document.addEventListener("keydown", keyDownHandler);
+
+    return () => {
+      document.removeEventListener("keydown", keyDownHandler);
+    };
+  }, [text]);
+
   return (
     <div className="inputContainer">
       <input
         type="text"
         placeholder="Type something..."
-        onChange={(e) => setText(e.target.value)}
+        onChange={(e) => {
+          setText(e.target.value);
+        }}
         value={text}
       />
       <div className="send">

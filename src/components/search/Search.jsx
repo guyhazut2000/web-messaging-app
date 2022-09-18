@@ -82,6 +82,7 @@ const Search = () => {
     setUser(null);
     setUsername("");
   };
+
   return (
     <div className="searchContainer">
       <div className="searchForm">
