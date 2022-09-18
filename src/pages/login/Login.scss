@@ -72,10 +72,6 @@
             border: none;
             cursor: pointer;
 
-            @include tablet {
-                position: absolute;
-                bottom: 10px;
-            }
         }
 
         label{
